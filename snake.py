@@ -3,6 +3,9 @@ from random import randrange
 from wsgiref import headers
 from freegames import square, vector
 
+# Octavio Augusto Alemán A01660702
+# Carla Oñate Gardella A01653555
+
 food = vector(100, 100)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
