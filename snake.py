@@ -43,6 +43,21 @@ def inside(head):
     "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
 
+# randomColor() function has been added. Its purpose is to choose from a list containing 7 different colors, one random color for the snake and one random color for the target, also considering that those two colors have to be different. 
+
+def randomColor():
+    colors = ['black', 'green', 'purple', 'orange', 'yellow', 'blue', 'pink'] #The list containing the colors is created.
+
+    x = randrange(1, 7, 1) #A random number between 1 and 7 is chosen. 
+
+    global colorSnake # The global variable colorSnake is defined.
+    colorSnake = colors[x] # A value is asigned to the colorSnake variable. The color is chosen based on the previously generated random number, taking the color from that index in the colors[] list. 
+    colors.pop(x) #The first used color is taken out from the list, so that it isn't repeated.
+
+    x = randrange(1, 6, 1) #A second random number between 1 and 6 is chosen.
+    global colorSquare # The global variable colorSquare is defined.
+    colorSquare = colors[x] # A value is asigned to the colorSquare variable.
+
 def move():
     "Move snake forward one segment."
     head = snake[-1].copy()
@@ -65,9 +80,9 @@ def move():
     clear()
 
     for body in snake:
-        square(body.x, body.y, 9, 'black')
+        square(body.x, body.y, 9, colorSnake) # The color based on the colorSnake variable is asigned.
 
-    square(food.x, food.y, 9, 'green')
+    square(food.x, food.y, 9, colorSquare) # The color based on the colorSquare variable is asigned.
     update()
     ontimer(move, 100)
 
@@ -79,6 +94,7 @@ onkey(lambda: change(10, 0), 'Right')
 onkey(lambda: change(-10, 0), 'Left')
 onkey(lambda: change(0, 10), 'Up')
 onkey(lambda: change(0, -10), 'Down')
+randomColor() # The function is called so that it asigns values to the global variables colorSnake and colorSquare.
 move()
 triggerFood() # function to trigger moveFood function
 done()
