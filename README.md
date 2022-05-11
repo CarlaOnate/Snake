@@ -7,4 +7,4 @@ Se usan las flechas del teclado para mover a la serpiente.
 ## Objetivo
 La serpiente tiene que ir comiendo la comida e intentar comer la mayor cantidad de comida sin salirse del mapa y sin cochar con si misma.
 
-[!Snake game](https://github.com/CarlaOnate/Snake/blob/main/assets/snake.gif)
+![](https://github.com/CarlaOnate/Snake/blob/main/assets/snake.gif)
